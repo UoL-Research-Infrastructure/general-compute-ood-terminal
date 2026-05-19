@@ -1,0 +1,7 @@
+---
+name: terminal
+category: Interactive Apps
+subcategory: GUIs
+role: batch_connect
+description: |
+  This app will launch a graphical terminal window.

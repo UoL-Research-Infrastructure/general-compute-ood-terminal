@@ -1,0 +1,62 @@
+---
+cluster:
+  - "pilot-ood-cl1"
+form:
+  - bc_account
+  - bc_email_on_started
+  - custom_queue
+  - bc_num_hours
+  - custom_cpus
+  - custom_memory
+attributes:
+  bc_account: ''
+  bc_email_on_started: ''
+  bc_num_hours:
+    value: 1
+    cacheable: false
+  custom_cpus:
+    min: 1
+    value: 2
+    widget: "number_field"
+    cacheable: false
+  custom_memory:
+    min: 1
+    value: 1
+    widget: "number_field"
+    cacheable: false
+  custom_queue:
+    label: Queue/Partition
+    options:
+    - [
+        'temp (uol-gen-res-13)', 'pilot-p1',
+        data-help-custom-queue: 'uol-gen-res-13 allows max 4 CPUS, 4GB RAM and 6 hours runtime.',
+        data-max-custom-cpus: 4,
+        data-max-custom-memory: 4,
+        data-max-bc-num-hours: 6,
+        data-label-custom-cpus: "Number of CPUs (1-4)",
+        data-label-custom-memory: "Amount of memory (1-4 GB)",
+        data-label-bc-num-hours: "Number of hours (1-6)"
+      ]
+    - [
+        'feps-fast', 'feps-fast',
+        data-help-custom-queue: '"fast" queues allow max 16 CPUS, 64GB RAM and 6 hours runtime.',
+        data-max-custom-cpus: 16,
+        data-max-custom-memory: 64,
+        data-max-bc-num-hours: 6,
+        data-label-custom-cpus: "Number of CPUs (1-16)",
+        data-label-custom-memory: "Amount of memory (1-64 GB)",
+        data-label-bc-num-hours: "Number of hours (1-6)"
+      ]
+    - [
+        'feps-slow', 'feps-slow',
+        data-help-custom-queue: '"slow" queues allow max 4 CPUS, 4GB RAM and 24 hours runtime.',
+        data-max-custom-cpus: 4,
+        data-max-custom-memory: 4,
+        data-max-bc-num-hours: 24,
+        data-label-custom-cpus: "Number of CPUs (1-4)",
+        data-label-custom-memory: "Amount of memory (1-4 GB)",
+        data-label-bc-num-hours: "Number of hours (1-24)"
+      ]
+    widget: select
+    cacheable: false
+

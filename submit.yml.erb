@@ -1,0 +1,20 @@
+---
+batch_connect:
+  before_script: |
+    # Set somewhere writable for authority file or desktop won't start
+    export XDG_RUNTIME_DIR="$HOME/.xdg_runtime"
+    # Unset DBUS_SESSION_BUS_ADDRESS for Mate to work
+    unset DBUS_SESSION_BUS_ADDRESS
+    # reset SLURM_EXPORT_ENV
+    export SLURM_EXPORT_ENV=ALL
+  template: vnc
+  min_port: 18700
+  max_port: 18799
+script:
+  native:
+    - "--mem"
+    - "<%= custom_memory %>G"
+    - "-c"
+    - "<%= custom_cpus %>"
+    - "-p"
+    - "<%= custom_queue %>"
